@@ -28,6 +28,9 @@ public class Win {
         for (int index = 0; index < board.length; index++) {
             if (board[index][index] == 1) {
                 rsl = checkHoriz(board, index) || checkVert(board, index);
+                if (rsl) {
+                    break;
+                }
             }
         }
         return rsl;

@@ -30,7 +30,14 @@ public class Logic {
         figures[index] = figures[index].copy(dest);
     }
 
-    private boolean isFree(Cell[] steps) {
+    private boolean isFree(Cell[] steps) throws OccupiedCellException {
+        for (int index = 0; index < steps.length; index++) {
+            for (int indexFigure = 0; indexFigure < figures.length; indexFigure++) {
+                if (steps[index].compareTo(figures[indexFigure].position()) == 0) {
+                    throw new OccupiedCellException();
+                }
+            }
+        }
         return true;
     }
 

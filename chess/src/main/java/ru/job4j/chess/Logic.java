@@ -38,13 +38,6 @@ public class Logic {
             if (findBy(steps[index]) >= 0 ) {
                 throw new OccupiedCellException();
             }
-/*
-            for (int indexFigure = 0; indexFigure < figures.length; indexFigure++) {
-                if (steps[index].compareTo(figures[indexFigure].position()) == 0) {
-                    throw new OccupiedCellException();
-                }
-            }
- */
         }
         return true;
     }

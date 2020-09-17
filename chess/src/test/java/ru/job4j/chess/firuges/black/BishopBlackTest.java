@@ -47,6 +47,7 @@ public class BishopBlackTest extends TestCase {
                 String.format(
                         "Could not way by diagonal from C1 to G4"
                 )));
+
     }
 
     public void testIsDiagonal() {

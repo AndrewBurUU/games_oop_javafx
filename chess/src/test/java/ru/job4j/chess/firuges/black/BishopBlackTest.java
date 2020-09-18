@@ -8,7 +8,7 @@ import ru.job4j.chess.firuges.Figure;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class BishopBlackTest extends TestCase {
+public class BishopBlackTest {
 
     @Test
     public void testPosition() {
@@ -40,23 +40,17 @@ public class BishopBlackTest extends TestCase {
         assertThat(bishopBlack.way(Cell.D4,Cell.A1),is(new Cell[] {Cell.C3,Cell.B2,Cell.A1}));
     }
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void testWayException() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
-        assertThat(bishopBlack.way(Cell.C1,Cell.G4).toString(),is(
-                String.format(
-                        "Could not way by diagonal from C1 to G4"
-                )));
-
-    }
-
-    public void testIsDiagonal() {
+        bishopBlack.way(Cell.C1,Cell.G4);
     }
 
     @Test
     public void testCopy() {
         BishopBlack bishopBlack = new BishopBlack(Cell.F1);
-        bishopBlack.copy(Cell.C1);
-        assertThat(bishopBlack.position(), is(Cell.C1));
+        Figure copy = bishopBlack.copy(Cell.C1);
+        Cell position = copy.position();
+        assertThat(position, is(Cell.C1));
     }
 }
